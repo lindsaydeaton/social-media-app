@@ -1,0 +1,56 @@
+.commentCard {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #ced7e7;
+  width: 740px;
+  margin-top: 40px;
+  padding-top: 20px;
+}
+.topOfComment {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.commentsHeading {
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+  height: 40px;
+}
+.commentImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  margin: auto 0;
+}
+.commentUser {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #12151d;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.commentDate {
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: rgba(18, 21, 29, 0.6);
+}
+.comment {
+  margin: auto 0;
+  font-size: 12px;
+  color: rgba(18, 21, 29, 0.87);
+  line-height: 18px;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 770px) {
+  .comment {
+    width: 360px;
+  }
+  .commentCard {
+    width: 360px;
+  }
+}

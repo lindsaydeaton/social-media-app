@@ -1,0 +1,94 @@
+.reactionsBar {
+  display: flex;
+  flex-direction: row;
+  width: 390px;
+  border: none;
+}
+.icon {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(18, 21, 29, 0.6);
+}
+
+.reactionsButton .icon {
+  margin-right: 8px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.hypesIcon:hover {
+  color: #f44900;
+  background-color: rgba(244, 73, 0, 0.3);
+}
+.hypesIcon:active {
+  color: rgba(255, 255, 255, 0.96);
+  background-color: #f44900;
+}
+.hypesIcon.hyped {
+  color: #f44900;
+  background-color: none;
+}
+
+.commentsIcon:hover {
+  background-color: rgba(0, 108, 250, 0.3);
+  color: #ffbaba;
+}
+
+.commentsIcon:active {
+  background-color: #ffbaba;
+  color: white;
+}
+
+.sharesIcon:hover {
+  background-color: rgba(18, 21, 29, 0.3);
+  color: rgba(18, 21, 29, 0.87);
+}
+.sharesIcon:active {
+  background-color: rgba(18, 21, 29, 0.87);
+  color: #000000;
+}
+
+.number {
+  font-size: 12px;
+  font-weight: 500;
+  color: #12151d;
+  line-height: 20px;
+}
+.words {
+  font-size: 10px;
+  font-weight: 400;
+  color: #12151d;
+  line-height: 16px;
+}
+.reactionsButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  color: #12151d;
+  border: none;
+}
+
+.viewsNumber {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #12151d;
+  line-height: 20px;
+}
+
+@media only screen and (max-width: 770px) {
+  .reactionsBar {
+    width: 368px;
+    margin-left: -15px;
+  }
+
+  .reactionsButton .icon {
+    margin-right: 3px;
+  }
+}

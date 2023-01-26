@@ -1,0 +1,52 @@
+.commentBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: rgba(18, 21, 29, 0.6);
+    border-radius: 100px;
+    margin-left: -20px;
+}
+
+.inputComment {
+    position: absolute;
+    background-color: transparent;
+    box-sizing: border-box;
+    border: transparent;
+    background-color: #F1F4F8;
+    color: rgba(18, 21, 29, 0.6);
+    border-radius: 100px;
+    padding: 0px 5px;
+    padding-left: 40px;
+    width: 770px;
+    height: 40px;
+    cursor: text;
+}
+.commentBar .material-icons-outlined {
+    background-color: #F1F4F8;
+    position: relative;
+    top: 10px;
+    color: rgba(18, 21, 29, 0.6);
+    font-size: 18px;
+    font-weight: 400;
+}
+.material-icons-outlined {
+    font-family: Material Icons;
+
+}
+.commentBubble.material-icons-outlined {
+    position: relative;
+    left: 30px;
+    z-index: 1;
+}
+
+button.material-icons-outlined {
+    border: none;
+    left: 722px;
+    cursor: pointer;;
+}
+
+@media only screen and (max-width: 770px) {
+    .inputComment {
+        width:370px;
+    }
+}

@@ -1,0 +1,94 @@
+.headerBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border-bottom: 1px solid #ced7e7;
+  margin: 0 auto;
+  width: 835px;
+}
+
+.logo {
+  width: 170px;
+  height: 47px;
+  cursor: pointer;
+}
+.menuIcon {
+  font-weight: 800;
+  align-items: center;
+  color: #ff0000;
+  margin-right: 8px;
+  font-size: 28px;
+  cursor: pointer;
+  border: 1px solid rgba(18, 21, 29, 0.6);
+  padding: 8px;
+  border-radius: 50%;
+}
+.leftMenu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 300px;
+}
+
+.rightMenu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 300px;
+}
+.searchIcon {
+  color: #ff0000;
+  font-size: 26px;
+  padding: 12px;
+  border: 1px solid rgba(18, 21, 29, 0.6);
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.extraRightMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(18, 21, 29, 0.6);
+  border-radius: 6px;
+  width: 80px;
+  height: 40px;
+}
+
+.loggedInUser {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.downArrow {
+  width: 11px;
+  height: 12px;
+  font-weight: 400;
+  color: #697181;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .headerBar {
+    width: 400px;
+    padding-bottom: 10px;
+  }
+  .logo {
+    width: 111px;
+    height: 38px;
+  }
+  .menuIcon {
+    font-size: 16px;
+    margin-top: 7px;
+    margin-left: 8px;
+    font-weight: 400;
+    align-items: center;
+    color: #ffbaba;
+  }
+}
+.searchIcon {
+  font-size: 16px;
+}

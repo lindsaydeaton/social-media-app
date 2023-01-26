@@ -1,0 +1,78 @@
+.postInput {
+  border: 1px solid #ced7e7;
+  border-radius: 10px;
+  padding: 16px;
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 38px;
+}
+
+.inputStatus {
+  border: 1px solid #ced7e7;
+  border-radius: 8px;
+  width: 768px;
+  height: 50px;
+  margin: 16px;
+}
+.iconSpacing {
+  width: 768px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.medias {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.photoIcon {
+  padding-right: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(18, 21, 29, 0.6);
+}
+.iconText {
+  color: rgba(18, 21, 29, 0.6);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.postButton {
+  background-color: #ff0000;
+  color: white;
+  padding-left: 26px;
+  padding-right: 26px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: none;
+  border-radius: 8px;
+  line-height: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.postButton:disabled {
+opacity: .5;
+cursor: auto;
+}
+
+@media only screen and (max-width: 770px) {
+  .postInput {
+    width: 382px;
+    padding: 10px;
+    margin-top: 18px;
+  }
+  .inputStatus {
+    width: 350px;
+  }
+  .iconSpacing {
+   width: 350px;
+  }
+}
