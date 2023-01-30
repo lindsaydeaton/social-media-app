@@ -31,10 +31,10 @@ export function CommentInput({ data, setData, setViewingComments, post }) {
       username: myUsername,
       picURL: myUserPic,
       comment: newComment,
-      hypes: 0,
+      likes: 0,
       replies: 0,
       shares: 0,
-      hyped: false,
+      liked: false,
     };
     const posts = data.posts;
 

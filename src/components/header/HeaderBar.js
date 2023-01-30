@@ -9,7 +9,7 @@ export function HeaderBar(props) {
           <a href="https://www.gir.co/">
           <img
             className="logo"
-            src="https://logodix.com/logo/313435.png"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Big_12_logo_in_Texas_Tech_colors.svg/2560px-Big_12_logo_in_Texas_Tech_colors.svg.png"
             alt="Logo"
             height="60px"
             />

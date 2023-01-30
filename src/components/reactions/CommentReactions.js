@@ -1,17 +1,17 @@
 import React from 'react';
 import "./ReactionBar.css";
 
-export function CommentReactions({ comment, onClickHype, hypedClass, isHyped }) {
-  const addHype = comment.hypes + 1;
+export function CommentReactions({ comment, onClickLike, LikedClass, isLiked }) {
+  const addLike = comment.likes + 1;
   
   return (
     <div className="reactionsBar">
-      <button onClick={onClickHype} className="reactionsButton" type="submit">
-        <span class={`${hypedClass} material-icons-outlined icon hypesIcon`}>
+      <button onClick={onClickLike} className="reactionsButton" type="submit">
+        <span class={`${LikedClass} material-icons-outlined icon likesIcon`}>
           water_drop
         </span>
         <p className="number">
-          {!isHyped ? comment.hypes : addHype} <span className="words">Hypes</span>
+          {!isLiked ? comment.likes : addLike} <span className="words">likes</span>
         </p>
       </button>
       <button

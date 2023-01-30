@@ -6,17 +6,18 @@ import "./Post.css";
 
 export function Post({ data, post, setData}) {
   const [viewingComments, setViewingComments] = useState(false);
-    const [isHyped, setIsHyped] = useState(false);
-
+    const [isLiked, setIsLiked] = useState(post.liked);
+    const [, setCountIsLiked] =useState(post.postLikeNo);
 
     useEffect(() => {
-      setIsHyped(post.hyped);
-    }, [post.hyped]);
+      setIsLiked(post.liked);
+    }, [post.liked]);
 
-    const hypedClass = isHyped ? "hyped" : "";
+    const likedClass = isLiked ? "liked" : "";
 
-    const onClickHype = () => {
-      setIsHyped(!isHyped);
+    const onClickLike = () => {
+      setIsLiked(!post.liked);
+      post.liked ? setCountIsLiked(post.postLikeNo + 1) : setCountIsLiked(post.postLikeNo - 1)
     };
 
   return (
@@ -53,9 +54,9 @@ export function Post({ data, post, setData}) {
               setViewingComments={setViewingComments}
               viewingComments={viewingComments}
               post={post}
-              hypedClass={hypedClass}
-              onClickHype={onClickHype}
-              isHyped={isHyped}
+              likedClass={likedClass}
+              onClickLike={onClickLike}
+              isLiked={isLiked}
             />
             <CommentInput
               data={data}
@@ -66,10 +67,10 @@ export function Post({ data, post, setData}) {
 
             {viewingComments ? (
               <Comments
-                hypedClass={hypedClass}
-                onClickHype={onClickHype}
+                likedClass={likedClass}
+                onClickLike={onClickLike}
                 post={post}
-                isHyped={isHyped}
+                isLiked={isLiked}
               />
             ) : (
               <></>

@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { Posts } from './components/posts/Posts.js';
 import { PostInput } from './components/inputBars/PostInput.js';
 import { HeaderBar } from './components/header/HeaderBar.js';
-import User from "./mockData/getData.json";
+import User from "./mockData/data.json";
 
 
 function App() {

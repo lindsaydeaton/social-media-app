@@ -16,11 +16,11 @@ export function PostInput({ data, setData }) {
       postId: idNumber,
       post: newPost,
       postDate: new Date().toLocaleDateString(),
-      postHypeNo: 0,
+      postLikeNo: 0,
       postShareNo: 0,
       noOfComments: 0,
       views: 0,
-      hyped: false,
+      liked: false,
       comments: [],
     };
     setData({

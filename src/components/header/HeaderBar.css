@@ -9,14 +9,14 @@
 }
 
 .logo {
-  width: 170px;
-  height: 47px;
+  width: 115px;
+  height: 44px;
   cursor: pointer;
 }
 .menuIcon {
   font-weight: 800;
   align-items: center;
-  color: #ff0000;
+  color: #CD0000;
   margin-right: 8px;
   font-size: 28px;
   cursor: pointer;
@@ -38,7 +38,7 @@
   width: 300px;
 }
 .searchIcon {
-  color: #ff0000;
+  color: #CD0000;
   font-size: 26px;
   padding: 12px;
   border: 1px solid rgba(18, 21, 29, 0.6);

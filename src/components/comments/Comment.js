@@ -3,7 +3,7 @@ import { CommentReactions } from "../reactions/CommentReactions.js";
 import "./Comment.css";
 
 
-export function Comment({ comment, onClickHype, hypedClass }) {
+export function Comment({ comment, onClickLike, LikedClass }) {
   return (
     <div className="commentCard">
       <div className="topOfComment">
@@ -19,8 +19,8 @@ export function Comment({ comment, onClickHype, hypedClass }) {
         <p>{comment.comment}</p>
       </div>
       <CommentReactions
-        hypedClass={hypedClass}
-        onClickHype={onClickHype}
+        LikedClass={LikedClass}
+        onClickLike={onClickLike}
         comment={comment}
       />
     </div>
