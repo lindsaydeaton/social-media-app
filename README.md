@@ -1,6 +1,6 @@
 # Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using: Javascript, React, and CSS Styled Sheets
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using: Javascript, React, CSS Styled Sheets and local storage.
 
 ## Important Available Scripts
 
