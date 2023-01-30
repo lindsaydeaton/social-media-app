@@ -39,3 +39,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 This application is close in relation to a social media app that many of us use, today.  On the site of the application, you will find, components of a header bar, then a post input section, followed by the posts.  The posts themselves have a reaction bar with Like and comment icon functionality then the ability to add a comment in the input bar which once added will open the comments section.
 
 There are a lot of updates I could make to this application including a login option with a few users, so that storage can hold what users are commenting and liking posts.  Adding or updating a users profile with picture, activating the ability to add media, adding the menu drop down on the top left, and fully activating all other icon/text combo reactions similar to other social media apps.
+
+<img width="425" alt="Screenshot 2023-01-30 at 2 45 42 PM" src="https://user-images.githubusercontent.com/108386611/215583266-e6699074-6e66-4b09-9c1d-36d2ea7ac2ee.png">
