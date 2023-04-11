@@ -1,0 +1,20 @@
+.profileMenu {
+    position: absolute;
+    top: 105px;
+    right: 46px;
+    z-index: 98;
+    width: 9%;
+    border: 1px solid rgba(18, 21, 29, 0.6);
+    border-radius: 10px;
+    background: white;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.title:hover {
+    color: red;
+    background: rgb(239, 238, 238);
+    cursor: pointer;
+    transition: background-color .5s color 1s;
+    text-align: left;
+}

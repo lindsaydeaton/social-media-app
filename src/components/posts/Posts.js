@@ -2,7 +2,6 @@ import React from "react";
 import { Post } from "./Post.js"
 
 export function Posts({ setData, data, posts }) {
-  console.log("posts", data.posts);
 
   return (
     <>

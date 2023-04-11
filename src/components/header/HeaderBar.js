@@ -1,19 +1,24 @@
 import React, {useState} from 'react';
 import "./HeaderBar.css";
 import { NavMenu } from "../navMenu/NavMenu.js"
+import { ProfileMenu } from "../profileMenu/ProfileMenu.js"
 
 
-export function HeaderBar(props) {
-  const [menuOpen, setMenuOpen] = useState(false);
+export function HeaderBar(data) {
+  const [navOpen, setNavOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
 
-  const menuClick = () => {
-    setMenuOpen(!menuOpen);
+  const navOnClick = () => {
+    setNavOpen(!navOpen);
+  }
+  const profileOnClick = () => {
+    setProfileOpen(!profileOpen);
   }
     return (
       <>
       <div className="headerBar">
         <div className="leftMenu">
-          <button onClick={menuClick} className="material-icons-outlined menuIcon">menu</button>
+          <button onClick={navOnClick} className="material-icons-outlined menuIcon">menu</button>
           <a href="https://www.gir.co/">
           <img
             className="logo"
@@ -26,18 +31,19 @@ export function HeaderBar(props) {
 
         <div className="rightMenu">
           <span className="material-icons-outlined searchIcon">search</span>
-          <div className="extraRightMenu">
+          <button onClick={profileOnClick} className="extraRightMenu">
           <img
             className="loggedInUser"
             src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
             alt="userLoggedIn"
           />
             <span className="material-icons-outlined downArrow">expand_more</span>
-            </div>
+            </button>
         </div>
       </div>
-      {menuOpen ? <NavMenu /> : <></>}
-      
+      {navOpen ? <NavMenu /> : <></>}
+      {profileOpen ? <ProfileMenu data={data} /> : <></>}
+
       </>
     );
 }

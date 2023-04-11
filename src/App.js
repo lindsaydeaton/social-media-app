@@ -28,8 +28,8 @@ function App() {
 
   return (
     <div className="App">
-      <HeaderBar/>
-      {/* <PostInput data={data} setData={setData} /> */}
+      <HeaderBar data={data} />
+      <PostInput data={data} setData={setData} />
       <Posts data={data} setData={setData} posts={posts} />
     </div>
   );
