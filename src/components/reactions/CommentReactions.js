@@ -7,7 +7,7 @@ export function CommentReactions({ comment, onClickLike, LikedClass, isLiked }) 
   return (
     <div className="reactionsBar">
       <button onClick={onClickLike} className="reactionsButton" type="submit">
-        <span class={`${LikedClass} material-icons-outlined icon likesIcon`}>
+        <span className={`${LikedClass} material-icons-outlined icon likesIcon`}>
           water_drop
         </span>
         <p className="number">
@@ -18,7 +18,7 @@ export function CommentReactions({ comment, onClickLike, LikedClass, isLiked }) 
         className="reactionsButton"
         type="submit"
       >
-        <span class="material-icons-outlined icon commentsIcon">
+        <span className="material-icons-outlined icon commentsIcon">
           chat_bubble_outline
         </span>
         <p className="number">
@@ -27,7 +27,7 @@ export function CommentReactions({ comment, onClickLike, LikedClass, isLiked }) 
         </p>
       </button>
       <button className="reactionsButton" type="submit">
-        <span class="material-icons-outlined icon sharesIcon">share</span>
+        <span className="material-icons-outlined icon sharesIcon">share</span>
         <p className="number">
           {comment.shares} <span className="words">Shares</span>
         </p>

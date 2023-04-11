@@ -1,7 +1,7 @@
 import React from 'react';
 import "./ReactionBar.css";
 
-export function ReactionBar({ setViewingComments, viewingComments, post, onClickLike, LikedClass, isLiked }) {
+export function ReactionBar({ setViewingComments, viewingComments, post, onClickLike, likedClass, isLiked }) {
 
   const handleGetComments = (event) => {
     event.preventDefault()
@@ -15,7 +15,7 @@ const addLike = post.postLikeNo + 1;
     <>
       <div className="reactionsBar">
         <button onClick={onClickLike} className="reactionsButton" type="submit">
-          <span class={`${LikedClass} material-icons-outlined icon LikesIcon`}>
+          <span className={`${likedClass} material-icons-outlined icon LikesIcon`}>
             water_drop
           </span>
           <p className="number">
@@ -27,7 +27,7 @@ const addLike = post.postLikeNo + 1;
           onClick={handleGetComments}
           type="submit"
         >
-          <span class="material-icons-outlined icon commentsIcon">
+          <span className="material-icons-outlined icon commentsIcon">
             chat_bubble_outline
           </span>
           <p className="number">
@@ -36,7 +36,7 @@ const addLike = post.postLikeNo + 1;
           </p>
         </button>
         <button className="reactionsButton" type="submit">
-          <span class="material-icons-outlined icon sharesIcon">share</span>
+          <span className="material-icons-outlined icon sharesIcon">share</span>
           <p className="number">
             {post.postShareNo} <span className="words">Shares</span>
           </p>

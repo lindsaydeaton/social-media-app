@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./HeaderBar.css";
+import { NavMenu } from "../navMenu/NavMenu.js"
+
 
 export function HeaderBar(props) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const menuClick = () => {
+    setMenuOpen(!menuOpen);
+  }
     return (
+      <>
       <div className="headerBar">
         <div className="leftMenu">
-          <span class="material-icons-outlined menuIcon">menu</span>
+          <button onClick={menuClick} className="material-icons-outlined menuIcon">menu</button>
           <a href="https://www.gir.co/">
           <img
             className="logo"
@@ -17,17 +25,20 @@ export function HeaderBar(props) {
         </div>
 
         <div className="rightMenu">
-          <span class="material-icons-outlined searchIcon">search</span>
+          <span className="material-icons-outlined searchIcon">search</span>
           <div className="extraRightMenu">
           <img
             className="loggedInUser"
             src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
             alt="userLoggedIn"
           />
-            <span class="material-icons-outlined downArrow">expand_more</span>
+            <span className="material-icons-outlined downArrow">expand_more</span>
             </div>
         </div>
       </div>
+      {menuOpen ? <NavMenu /> : <></>}
+      
+      </>
     );
 }
 

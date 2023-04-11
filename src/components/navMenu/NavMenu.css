@@ -1,0 +1,20 @@
+.navMenu {
+    background: white;
+    border: 1px solid rgba(18, 21, 29, 0.6);
+    border-radius: 10px;
+    width:20%; 
+    position:absolute; 
+    z-index:99;
+    left: 300px;
+}
+
+.titles {
+    margin-left: 15px;
+}
+
+.titles:hover {
+    color: red;
+    background: rgb(239, 238, 238);
+    cursor: pointer;
+    transition: background-color .5s color 1s;
+}

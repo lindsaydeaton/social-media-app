@@ -49,9 +49,9 @@ export function PostInput({ data, setData }) {
         />
         <div className="iconSpacing">
           <div className="medias">
-           <button className="iconText"><span class="material-icons-outlined photoIcon">camera_alt</span>
+           <button className="iconText"><span className="material-icons-outlined photoIcon">camera_alt</span>
          Add Media</button>
-           <button className="iconText"><span class="material-icons-outlined photoIcon">videocam</span>
+           <button className="iconText"><span className="material-icons-outlined photoIcon">videocam</span>
          Go Live</button>
 </div>
           <button
