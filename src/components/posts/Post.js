@@ -9,15 +9,13 @@ export function Post({ data, post, setData}) {
     const [isLiked, setIsLiked] = useState(post.liked);
     const [, setCountIsLiked] =useState(post.postLikeNo);
 
-    useEffect(() => {
-      setIsLiked(post.liked);
-    }, [post.liked]);
-
+    //if isLiked is true, set className to "liked" else nothing (to apply red color icon)
     const likedClass = isLiked ? "liked" : "";
 
     const onClickLike = () => {
-      setIsLiked(!post.liked);
-      post.liked ? setCountIsLiked(post.postLikeNo + 1) : setCountIsLiked(post.postLikeNo - 1)
+      //if liked is true, when clicking set it to false and decrease the count by one, else change it to true and increase the count by one
+      isLiked ? setIsLiked(false) && setCountIsLiked(post.postLikedNo -1) : setIsLiked(true) && setCountIsLiked(post.postLikedNo + 1)
+    console.log("likedClass", likedClass);
     };
 
   return (
