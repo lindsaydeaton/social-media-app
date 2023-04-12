@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./PostInput.css";
 
-export function PostInput({ data, setData }) {
+export function PostInput({ data, setData, onToggleMenu }) {
   const [newPost, setNewPost] = useState('');
 
   const onChangePost = (e) => {
@@ -37,7 +37,7 @@ export function PostInput({ data, setData }) {
   }
 
   return (
-    <div className="postInput">
+    <div className="postInput" onClick={onToggleMenu}>
       <form className="form" onSubmit={handleNewPost}>
         <input
           value={newPost}

@@ -7,16 +7,24 @@ import { ProfileMenu } from "../profileMenu/ProfileMenu.js"
 export function HeaderBar(data) {
   const [navOpen, setNavOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-
   const navOnClick = () => {
     setNavOpen(!navOpen);
   }
   const profileOnClick = () => {
     setProfileOpen(!profileOpen);
   }
+  const onToggleMenu = () => {
+    if (profileOpen) {
+      setProfileOpen(!profileOpen)
+    }
+    if (navOpen) {
+      setNavOpen(!navOpen)
+    }
+  }
+
     return (
       <>
-      <div className="headerBar">
+      <div className="headerBar" onClick={onToggleMenu}>
         <div className="leftMenu">
           <button onClick={navOnClick} className="material-icons-outlined menuIcon">menu</button>
           <a href="https://www.gir.co/">
