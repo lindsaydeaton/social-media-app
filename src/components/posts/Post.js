@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { ReactionBar } from "../reactions/ReactionBar.js";
 import { CommentInput } from "../inputBars/CommentInput.js";
 import { Comments } from "../comments/Comments.js";

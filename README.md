@@ -47,3 +47,4 @@ There are a lot of updates I could make to this application including a login op
 **update profile picture to show preview OR allow for update
 **add media selection on media button
 **add search bar when selecting the magnifying glass to sort through username
+**add testing
