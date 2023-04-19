@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./PostInput.css";
 
-export function PostInput({ data, setData }) {
+export function PostInput({ theDate, posts, setPosts }) {
   const [newPost, setNewPost] = useState('');
 
   const onChangePost = (e) => {
@@ -10,12 +10,12 @@ export function PostInput({ data, setData }) {
 
   const handleNewPost = (e) => {
     e.preventDefault()
-    const idNumber = data.posts.length + 1;
+    const idNumber = posts.length + 1;
 
     const formattedPost = {
       postId: idNumber,
       post: newPost,
-      postDate: new Date().toLocaleDateString(),
+      postDate: theDate,
       postLikeNo: 0,
       postShareNo: 0,
       noOfComments: 0,
@@ -23,19 +23,21 @@ export function PostInput({ data, setData }) {
       liked: false,
       comments: [],
     };
-    setData({
-      ...data, posts: [formattedPost, ...data.posts]
+
+    setPosts({
+      ...posts, formattedPost
     })
+    
     localStorage.setItem(
-      "allInfo",
+      "allPosts",
       JSON.stringify({
-        ...data,
-        posts: [formattedPost, ...data.posts],
+        ...posts, formattedPost
       })
     );
+    localStorage.getItem("allPosts")
     setNewPost('');
   }
-
+console.log(posts);
   return (
     <div className="postInput">
       <form className="form" onSubmit={handleNewPost}>
@@ -49,11 +51,11 @@ export function PostInput({ data, setData }) {
         />
         <div className="iconSpacing">
           <div className="medias">
-           <button className="iconText"><span className="material-icons-outlined photoIcon">camera_alt</span>
-         Add Media</button>
-           <button className="iconText"><span className="material-icons-outlined photoIcon">videocam</span>
-         Go Live</button>
-</div>
+            <button className="iconText"><span className="material-icons-outlined photoIcon">camera_alt</span>
+              Add Media</button>
+            <button className="iconText"><span className="material-icons-outlined photoIcon">videocam</span>
+              Go Live</button>
+          </div>
           <button
             disabled={!newPost}
             type="submit"

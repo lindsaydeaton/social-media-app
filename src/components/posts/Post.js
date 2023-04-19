@@ -4,18 +4,18 @@ import { CommentInput } from "../inputBars/CommentInput.js";
 import { Comments } from "../comments/Comments.js";
 import "./Post.css";
 
-export function Post({ data, post, setData}) {
-  const [viewingComments, setViewingComments] = useState(false);
-    const [isLiked, setIsLiked] = useState(post.liked);
-    const [, setCountIsLiked] =useState(post.postLikeNo);
+export function Post({ data, post, setData, setPosts, theDate}) {
+  // const [viewingComments, setViewingComments] = useState(false);
+  //   const [isLiked, setIsLiked] = useState('');
+  //   const [, setCountIsLiked] =useState('');
 
     //if isLiked is true, set className to "liked" else nothing (to apply red color icon)
-    const likedClass = isLiked ? "liked" : "";
+    // const likedClass = isLiked ? "liked" : "";
 
-    const onClickLike = () => {
-      //if liked is true, when clicking set it to false and decrease the count by one, else change it to true and increase the count by one
-      isLiked ? setIsLiked(false) && setCountIsLiked(post.postLikedNo -1) : setIsLiked(true) && setCountIsLiked(post.postLikedNo + 1)
-    };
+    // const onClickLike = () => {
+    //   //if liked is true, when clicking set it to false and decrease the count by one, else change it to true and increase the count by one
+    //   isLiked ? setIsLiked(false) && setCountIsLiked(post.postLikedNo -1) : setIsLiked(true) && setCountIsLiked(post.postLikedNo + 1)
+    // };
 
   return (
     <div>
@@ -47,22 +47,23 @@ export function Post({ data, post, setData}) {
           <div className="post">
             <p>{post.post}</p>
             {/* passing setViewingComments so the cards state can show comments when clicked, passing post so the reactions data can show for the specific ID's post */}
-            <ReactionBar
+            {/* <ReactionBar
               setViewingComments={setViewingComments}
               viewingComments={viewingComments}
               post={post}
               likedClass={likedClass}
               onClickLike={onClickLike}
-              isLiked={isLiked}
-            />
-            <CommentInput
+            isLiked={isLiked}
+            /> */}
+            {/* <CommentInput
               data={data}
               setData={setData}
               post={post}
               setViewingComments={setViewingComments}
-            />
+              theDate={theDate}
+            /> */}
 
-            {viewingComments ? (
+            {/* {viewingComments ? (
               <Comments
                 likedClass={likedClass}
                 onClickLike={onClickLike}
@@ -71,7 +72,7 @@ export function Post({ data, post, setData}) {
               />
             ) : (
               <></>
-            )}
+            )} */}
           </div>
         </div>
       </div>

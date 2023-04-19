@@ -3,7 +3,7 @@ import { Modal } from 'antd';
 import './ProfileMenu.css';
 import { ProfileModal } from './profileModal/ProfileModal.js';
 
-export function ProfileMenu(data) {
+export function ProfileMenu(data, setData) {
     const [editing, setEditing] = useState(false);
 
     const editingOnClick = () => {
@@ -23,9 +23,8 @@ export function ProfileMenu(data) {
             </div>
             {editing ?
                 <Modal open={editing}
-                    // onOk={onSubmit} 
                     onCancel={handleOnCancel}>
-                    <ProfileModal data={data} />
+                    <ProfileModal data={data} setData={setData} />
                 </Modal>
                 : <></>}
         </>

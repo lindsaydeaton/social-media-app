@@ -4,7 +4,12 @@ import './ProfileModal.css';
 import { PlusOutlined } from '@ant-design/icons';
 
 
-export function ProfileModal(data) {
+export function ProfileModal(data, setData) {
+
+
+    // *******TODO: CREATE ONCLICK FUNCTION FOR UPLOADING A NEW PICTURE AND USE SETDATA TO APPEND THE PROFILEPIC
+
+
     const specificUser = data.data.data.data
     const [profilePicture, setProfilePicture] = useState(specificUser.picURL)
 
@@ -12,7 +17,6 @@ export function ProfileModal(data) {
     const firstInitial = specificUser.username.charAt(0).toUpperCase();
     const lastName = specificUser.username.substring(1,7);
 
-   console.log(specificUser)
     return (
         <div>
             <h3>Edit your Profile:</h3>

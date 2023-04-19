@@ -43,6 +43,9 @@ There are a lot of updates I could make to this application including a login op
 <img width="425" alt="Screenshot 2023-01-30 at 2 45 42 PM" src="https://user-images.githubusercontent.com/108386611/215583266-e6699074-6e66-4b09-9c1d-36d2ea7ac2ee.png">
 
 
+**comment and post not working
+
+
 
 **update profile picture to show preview OR allow for update
 **add media selection on media button

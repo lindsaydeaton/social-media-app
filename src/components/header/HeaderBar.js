@@ -4,7 +4,7 @@ import { NavMenu } from "../navMenu/NavMenu.js"
 import { ProfileMenu } from "../profileMenu/ProfileMenu.js"
 
 
-export function HeaderBar(data) {
+export function HeaderBar(data, setData) {
   const [navOpen, setNavOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
 
@@ -42,7 +42,7 @@ export function HeaderBar(data) {
         </div>
       </div>
       {navOpen ? <NavMenu /> : <></>}
-      {profileOpen ? <ProfileMenu data={data} /> : <></>}
+      {profileOpen ? <ProfileMenu data={data} setData={setData} /> : <></>}
 
       </>
     );

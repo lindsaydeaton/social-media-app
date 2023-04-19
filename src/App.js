@@ -21,16 +21,31 @@ function App() {
   useEffect(() => {
     //checking if user has been here, before, call it "all posts".
     const prevSession = JSON.parse(localStorage.getItem('allPosts'))
-    //setting the data in localStorage
+    //setting the posts data in localStorage
     prevSession ? setPosts(prevSession) : 
       localStorage.setItem("allPosts", JSON.stringify(User.user.posts));
   }, [])
 
+   //handle date
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+    if (mm < 10) {
+      mm = '' + mm;
+    }
+    const theDate= mm + '/' + dd + '/' + yyyy;
+   
+
   return (
     <div className="App">
-      <HeaderBar data={data} />
-      <PostInput data={data} setData={setData} />
-      <Posts data={data} setData={setData} posts={posts} />
+      {/* passing data and setData to headerBar so that ProfileMenu and ProfileModal can use */}
+      <HeaderBar data={data} setData={setData} />
+      <PostInput theDate={theDate} posts={posts} setPosts={setPosts} />
+      <Posts data={data} setData={setData} posts={posts} theDate={theDate} />
     </div>
   );
 }

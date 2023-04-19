@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CommentInput.css";
 
-export function CommentInput({ data, setData, setViewingComments, post }) {
+export function CommentInput({ data, setData, setViewingComments, post, theDate }) {
   const [, setEditing] = useState(false);
   const [newComment, setNewComment] = useState("");
   
@@ -27,7 +27,7 @@ export function CommentInput({ data, setData, setViewingComments, post }) {
 
     const formattedComment = {
       commentsId: idNumber,
-      date: new Date().toLocaleDateString(),
+      date: theDate,
       username: myUsername,
       picURL: myUserPic,
       comment: newComment,
