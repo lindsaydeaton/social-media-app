@@ -3,9 +3,12 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  border-bottom: 1px solid #ced7e7;
   margin: 0 auto;
-  width: 835px;
+  width: 98%;
+}
+.line {
+  border-bottom: 1px solid #ced7e7;
+  width: 100%;
 }
 
 .logo {

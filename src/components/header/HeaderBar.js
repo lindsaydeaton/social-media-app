@@ -14,9 +14,19 @@ export function HeaderBar(data, setData) {
   const profileOnClick = () => {
     setProfileOpen(!profileOpen);
   }
+
+  const toggleMenus = () => {
+    if (profileOpen) {
+      setProfileOpen(!profileOpen);
+    }
+    if (navOpen) {
+      setNavOpen(!navOpen)
+    }
+  }
+
     return (
       <>
-      <div className="headerBar">
+      <div className="headerBar" onClick={toggleMenus}>
         <div className="leftMenu">
           <button onClick={navOnClick} className="material-icons-outlined menuIcon">menu</button>
           <a href="https://www.gir.co/">
@@ -41,6 +51,7 @@ export function HeaderBar(data, setData) {
             </button>
         </div>
       </div>
+      <div className="line"></div>
       {navOpen ? <NavMenu /> : <></>}
       {profileOpen ? <ProfileMenu data={data} setData={setData} /> : <></>}
 

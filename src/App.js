@@ -43,12 +43,22 @@ function App() {
 
 
   return (
+    <>
     <div className="App">
       {/* passing data and setData to headerBar so that ProfileMenu and ProfileModal can use */}
       <HeaderBar data={data} setData={setData} />
       <PostInput theDate={theDate} setData={setData} data={data} />
       <Posts data={data} setData={setData} theDate={theDate} />
     </div>
+    <p className="closing">
+          <img
+          className="tinyLogo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Big_12_logo_in_Texas_Tech_colors.svg/2560px-Big_12_logo_in_Texas_Tech_colors.svg.png"
+            alt="Logo"
+            height="60px"
+            />
+      XII Corporation © 2022</p>
+    </>
   );
 }
 
