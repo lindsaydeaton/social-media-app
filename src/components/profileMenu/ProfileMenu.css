@@ -1,7 +1,7 @@
 .profileMenu {
     position: absolute;
     top: 105px;
-    right: 46px;
+    right: 10px;
     z-index: 98;
     width: 9%;
     border: 1px solid rgba(18, 21, 29, 0.6);
@@ -17,4 +17,5 @@
     cursor: pointer;
     transition: background-color .5s color 1s;
     text-align: left;
+    border-radius: 10px;
 }
