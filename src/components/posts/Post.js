@@ -4,7 +4,7 @@ import { CommentInput } from "../inputBars/CommentInput.js";
 import { Comments } from "../comments/Comments.js";
 import "./Post.css";
 
-export function Post({ data, post, setData, setPosts, theDate}) {
+export function Post({ data, post, setData, theDate}) {
   // const [viewingComments, setViewingComments] = useState(false);
   //   const [isLiked, setIsLiked] = useState('');
   //   const [, setCountIsLiked] =useState('');
@@ -53,7 +53,7 @@ export function Post({ data, post, setData, setPosts, theDate}) {
               post={post}
               likedClass={likedClass}
               onClickLike={onClickLike}
-            isLiked={isLiked}
+              isLiked={isLiked}
             /> */}
             {/* <CommentInput
               data={data}

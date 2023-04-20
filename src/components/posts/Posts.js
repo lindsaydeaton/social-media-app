@@ -1,7 +1,9 @@
 import React from "react";
 import { Post } from "./Post.js"
 
-export function Posts({ setData, data, posts, theDate }) {
+export function Posts({ setData, data, theDate }) {
+  const posts = data.posts;
+
   return (
     <>
       {/* mapping through data on localStorage to show one users data */}

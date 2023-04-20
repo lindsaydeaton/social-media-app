@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./PostInput.css";
 
-export function PostInput({ theDate, posts, setPosts }) {
+export function PostInput({ theDate, setData, data }) {
+
+  const posts = data.posts;
   const [newPost, setNewPost] = useState('');
 
   const onChangePost = (e) => {
@@ -24,17 +26,16 @@ export function PostInput({ theDate, posts, setPosts }) {
       comments: [],
     };
 
-    setPosts({
-      ...posts, formattedPost
-    })
+    setData({...data, posts: [
+      formattedPost, ...posts
+    ]})
     
     localStorage.setItem(
-      "allPosts",
-      JSON.stringify({
-        ...posts, formattedPost
-      })
+      "allInfo",
+      JSON.stringify({...data, posts: [
+        formattedPost, ...posts
+      ]})
     );
-    localStorage.getItem("allPosts")
     setNewPost('');
   }
 console.log(posts);
