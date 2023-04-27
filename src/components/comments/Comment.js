@@ -3,7 +3,7 @@ import { CommentReactions } from "../reactions/CommentReactions.js";
 import "./Comment.css";
 
 
-export function Comment({ comment, onClickLike, LikedClass }) {
+export function Comment({ comment, handleLikeStored, LikedClass }) {
   return (
     <div className="commentCard">
       <div className="topOfComment">
@@ -20,7 +20,7 @@ export function Comment({ comment, onClickLike, LikedClass }) {
       </div>
       <CommentReactions
         LikedClass={LikedClass}
-        onClickLike={onClickLike}
+        handleLikeStored={handleLikeStored}
         comment={comment}
       />
     </div>

@@ -10,7 +10,6 @@ function App() {
   const [data, setData] = useState(User.user)
 
   useEffect(() => {
-    console.log(User.user);
     //checking if user has been here, before, call it "all info".
     const prevSession = JSON.parse(localStorage.getItem('allInfo'))
     //setting the data in localStorage

@@ -39,7 +39,6 @@ export function PostInput({ theDate, setData, data }) {
     setNewPost('');
   }
   
-console.log(posts);
   return (
     <div className="postInput">
       <form className="form" onSubmit={handleNewPost}>

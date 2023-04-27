@@ -7,16 +7,52 @@ import "./Post.css";
 export function Post({ data, post, setData, theDate}) {
 
   const [viewingComments, setViewingComments] = useState(false);
-    const [isLiked, setIsLiked] = useState('');
+    const [isLiked, setIsLiked] = useState(false);
     const [, setCountIsLiked] =useState('');
 
     //if isLiked is true, set className to "liked" else nothing (to apply red color icon)
     const likedClass = isLiked ? "liked" : "";
 
-    const onClickLike = () => {
+    const onChangeLiked = (e) => {
+      // setisLiked(e.target.value);
+    }
+
+    const handleLikeStored = (e) => {
+      e.preventDefault()
+      const addLike = post.postLikeNo + 1;
+      const removeLike = post.postLikeNo - 1;
+
       //if liked is true, when clicking set it to false and decrease the count by one, else change it to true and increase the count by one
-      isLiked ? setIsLiked(false) && setCountIsLiked(post.postLikedNo -1) : setIsLiked(true) && setCountIsLiked(post.postLikedNo + 1)
-    };
+      isLiked ? setIsLiked(false) && setCountIsLiked(removeLike) : setIsLiked(true) && setCountIsLiked(addLike)
+
+      const formattedPost = {
+        postId: post.postId,
+        post: post.post,
+        postDate: post.postDate,
+        postLikeNo: addLike,
+        postShareNo: post.postSharedNo,
+        noOfComments: post.noOfComments,
+        views: post.views,
+        liked: post.liked,
+        comments: post.comments,
+      };
+
+  console.log('formattedPost', formattedPost)
+  //if the postID being edited matches the post being updated, set the data to the updated post
+      if (data.postId == formattedPost.postId) {
+        setData({...data, posts: [
+        formattedPost, ...data.posts
+      ]})
+      }
+      console.log('data', data)
+      // localStorage.setItem(
+      //   "allInfo",
+      //   JSON.stringify({...data, posts: [
+      //     formattedPost, ...data.posts
+      //   ]})
+      // );
+    }
+
 
   return (
     <div>
@@ -42,7 +78,7 @@ export function Post({ data, post, setData, theDate}) {
             <img className="imgBubble" src={data.picURL} alt="user" />
             <div className="headings">
               <p className="user">{data.username}</p>
-              <p className="date">{post.postLikedNo}</p>
+              <p className="date">{post.postDate}</p>
             </div>
           </div>
           <div className="post">
@@ -55,7 +91,8 @@ export function Post({ data, post, setData, theDate}) {
               setData={setData}
               data={data}
               likedClass={likedClass}
-              onClickLike={onClickLike}
+              handleLikeStored={handleLikeStored}
+              onChange={onChangeLiked}
               isLiked={isLiked}
             />
             <CommentInput
@@ -69,7 +106,7 @@ export function Post({ data, post, setData, theDate}) {
             {viewingComments ? (
               <Comments
                 likedClass={likedClass}
-                onClickLike={onClickLike}
+                handleLikeStored={handleLikeStored}
                 post={post}
                 isLiked={isLiked}
               />

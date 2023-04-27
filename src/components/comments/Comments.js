@@ -1,7 +1,7 @@
 import React from 'react';
 import {Comment} from "./Comment";
 
-export function Comments({ post, onClickLike, LikedClass, isLiked }) {
+export function Comments({ post, handleLikeStored, LikedClass, isLiked }) {
   return (
     <div>
       {post.comments.map((comment) => {
@@ -10,7 +10,7 @@ export function Comments({ post, onClickLike, LikedClass, isLiked }) {
             key={comment.commentsId}
             comment={comment}
             LikedClass={LikedClass}
-            onClickLike={onClickLike}
+            handleLikeStored={handleLikeStored}
             isLiked={isLiked}
           />
         );
