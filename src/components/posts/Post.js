@@ -4,18 +4,55 @@ import { CommentInput } from "../inputBars/CommentInput.js";
 import { Comments } from "../comments/Comments.js";
 import "./Post.css";
 
-export function Post({ data, post, setData}) {
+export function Post({ data, post, setData, theDate}) {
+
   const [viewingComments, setViewingComments] = useState(false);
-    const [isLiked, setIsLiked] = useState(post.liked);
-    const [, setCountIsLiked] =useState(post.postLikeNo);
+    const [isLiked, setIsLiked] = useState(false);
+    const [, setCountIsLiked] =useState('');
 
     //if isLiked is true, set className to "liked" else nothing (to apply red color icon)
     const likedClass = isLiked ? "liked" : "";
 
-    const onClickLike = () => {
+    const onChangeLiked = (e) => {
+      // setisLiked(e.target.value);
+    }
+
+    const handleLikeStored = (e) => {
+      e.preventDefault()
+      const addLike = post.postLikeNo + 1;
+      const removeLike = post.postLikeNo - 1;
+
       //if liked is true, when clicking set it to false and decrease the count by one, else change it to true and increase the count by one
-      isLiked ? setIsLiked(false) && setCountIsLiked(post.postLikedNo -1) : setIsLiked(true) && setCountIsLiked(post.postLikedNo + 1)
-    };
+      isLiked ? setIsLiked(false) && setCountIsLiked(removeLike) : setIsLiked(true) && setCountIsLiked(addLike)
+
+      const formattedPost = {
+        postId: post.postId,
+        post: post.post,
+        postDate: post.postDate,
+        postLikeNo: addLike,
+        postShareNo: post.postSharedNo,
+        noOfComments: post.noOfComments,
+        views: post.views,
+        liked: post.liked,
+        comments: post.comments,
+      };
+
+  console.log('formattedPost', formattedPost)
+  //if the postID being edited matches the post being updated, set the data to the updated post
+      if (data.postId == formattedPost.postId) {
+        setData({...data, posts: [
+        formattedPost, ...data.posts
+      ]})
+      }
+      console.log('data', data)
+      // localStorage.setItem(
+      //   "allInfo",
+      //   JSON.stringify({...data, posts: [
+      //     formattedPost, ...data.posts
+      //   ]})
+      // );
+    }
+
 
   return (
     <div>
@@ -51,8 +88,11 @@ export function Post({ data, post, setData}) {
               setViewingComments={setViewingComments}
               viewingComments={viewingComments}
               post={post}
+              setData={setData}
+              data={data}
               likedClass={likedClass}
-              onClickLike={onClickLike}
+              handleLikeStored={handleLikeStored}
+              onChange={onChangeLiked}
               isLiked={isLiked}
             />
             <CommentInput
@@ -60,12 +100,13 @@ export function Post({ data, post, setData}) {
               setData={setData}
               post={post}
               setViewingComments={setViewingComments}
+              theDate={theDate}
             />
 
             {viewingComments ? (
               <Comments
                 likedClass={likedClass}
-                onClickLike={onClickLike}
+                handleLikeStored={handleLikeStored}
                 post={post}
                 isLiked={isLiked}
               />

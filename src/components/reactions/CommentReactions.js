@@ -1,12 +1,12 @@
 import React from 'react';
 import "./ReactionBar.css";
 
-export function CommentReactions({ comment, onClickLike, LikedClass, isLiked }) {
+export function CommentReactions({ comment, handleLikeStored, LikedClass, isLiked }) {
   const addLike = comment.likes + 1;
   
   return (
     <div className="reactionsBar">
-      <button onClick={onClickLike} className="reactionsButton" type="submit">
+      <button onClick={handleLikeStored} className="reactionsButton" type="submit">
         <span className={`${LikedClass} material-icons-outlined icon likesIcon`}>
           water_drop
         </span>

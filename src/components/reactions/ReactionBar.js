@@ -1,7 +1,7 @@
 import React from 'react';
 import "./ReactionBar.css";
 
-export function ReactionBar({ setViewingComments, viewingComments, post, onClickLike, likedClass, isLiked }) {
+export function ReactionBar({ setViewingComments, viewingComments, post, handleLikeStored, likedClass, onChangeLiked }) {
 
   const handleGetComments = (event) => {
     event.preventDefault()
@@ -9,17 +9,16 @@ export function ReactionBar({ setViewingComments, viewingComments, post, onClick
         setViewingComments(!viewingComments);
       }
   }
-  
-const addLike = post.postLikeNo + 1;
+
   return (
     <>
       <div className="reactionsBar">
-        <button onClick={onClickLike} className="reactionsButton" type="submit">
+        <button onClick={handleLikeStored} onChange={onChangeLiked} className="reactionsButton" type="submit">
           <span className={`${likedClass} material-icons-outlined icon LikesIcon`}>
             water_drop
           </span>
           <p className="number">
-            {!isLiked ? post.postLikeNo : addLike} <span className="words">Likes</span>
+            {/* {!isLiked ? post.postLikeNo : addLike} <span className="words">Likes</span> */}
           </p>
         </button>
         <button

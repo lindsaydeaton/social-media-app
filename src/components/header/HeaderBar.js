@@ -4,7 +4,7 @@ import { NavMenu } from "../navMenu/NavMenu.js"
 import { ProfileMenu } from "../profileMenu/ProfileMenu.js"
 
 
-export function HeaderBar(data) {
+export function HeaderBar(data, setData) {
   const [navOpen, setNavOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
 
@@ -14,9 +14,19 @@ export function HeaderBar(data) {
   const profileOnClick = () => {
     setProfileOpen(!profileOpen);
   }
+
+  const toggleMenus = () => {
+    if (profileOpen) {
+      setProfileOpen(!profileOpen);
+    }
+    if (navOpen) {
+      setNavOpen(!navOpen)
+    }
+  }
+
     return (
       <>
-      <div className="headerBar">
+      <div className="headerBar" onClick={toggleMenus}>
         <div className="leftMenu">
           <button onClick={navOnClick} className="material-icons-outlined menuIcon">menu</button>
           <a href="https://www.gir.co/">
@@ -41,8 +51,9 @@ export function HeaderBar(data) {
             </button>
         </div>
       </div>
+      <div className="line"></div>
       {navOpen ? <NavMenu /> : <></>}
-      {profileOpen ? <ProfileMenu data={data} /> : <></>}
+      {profileOpen ? <ProfileMenu data={data} setData={setData} /> : <></>}
 
       </>
     );
