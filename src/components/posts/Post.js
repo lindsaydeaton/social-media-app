@@ -21,7 +21,6 @@ export function Post({ data, post, setData, theDate }) {
     };
   };
   const postLiked = () => {
-    console.log('like');
     setIsLiked(true);
     setCountIsLiked(countIsLiked + 1);
     return {

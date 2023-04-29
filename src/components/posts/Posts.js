@@ -3,7 +3,6 @@ import { Post } from './Post.js';
 
 export function Posts({ setData, data, theDate }) {
   useEffect(() => {
-    console.log('data in posts', data);
     //sort posts so the newest one is always at the top
     const sortedPosts = data.posts?.sort(
       function (a, b) {
