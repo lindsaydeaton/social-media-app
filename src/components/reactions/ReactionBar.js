@@ -1,24 +1,38 @@
 import React from 'react';
-import "./ReactionBar.css";
+import './ReactionBar.css';
 
-export function ReactionBar({ setViewingComments, viewingComments, post, handleLikeStored, likedClass, onChangeLiked }) {
-
+export function ReactionBar({
+  setViewingComments,
+  viewingComments,
+  post,
+  handleLikeStored,
+  likedClass,
+}) {
   const handleGetComments = (event) => {
-    event.preventDefault()
-      if (post.comments.length > 0) {
-        setViewingComments(!viewingComments);
-      }
-  }
+    event.preventDefault();
+    if (post.comments.length > 0) {
+      setViewingComments(!viewingComments);
+    }
+  };
 
   return (
     <>
       <div className="reactionsBar">
-        <button onClick={handleLikeStored} onChange={onChangeLiked} className="reactionsButton" type="submit">
-          <span className={`${likedClass} material-icons-outlined icon LikesIcon`}>
+        <button
+          onClick={handleLikeStored}
+          className="reactionsButton"
+          type="submit"
+        >
+          <span
+            className={`${likedClass} material-icons-outlined icon LikesIcon`}
+          >
             water_drop
           </span>
           <p className="number">
-            {/* {!isLiked ? post.postLikeNo : addLike} <span className="words">Likes</span> */}
+            {post.postLikeNo}
+            <span className="words">
+              {post.postLikeNo === 1 ? ' Like' : ' Likes'}
+            </span>
           </p>
         </button>
         <button
