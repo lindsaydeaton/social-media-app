@@ -7,23 +7,16 @@ import User from "./mockData/data.json";
 
 
 function App() {
-  const [data, setData] = useState(User.user)
+  const [data, setData] = useState({})
 
   useEffect(() => {
     //checking if user has been here, before, call it "all info".
     const prevSession = JSON.parse(localStorage.getItem('allInfo'))
-    //setting the data in localStorage
-    let tempData = prevSession ? prevSession : User.user
-
-    const posts = tempData.posts;
-    //sort posts by date
-    const sortedPosts = posts.sort(function (a, b) {
-      // Turn your strings into dates, and then subtract them
-      // to get a value that is either negative, positive, or zero.
-      return new Date(b.postDate) - new Date(a.postDate);
-    });
-    tempData = {...tempData, posts: sortedPosts}
-    setData(tempData)
+    //if the user has been here, use data from previous sessions localStorage
+    const tempData = prevSession ? prevSession : User.user
+    //setting state data
+    setData(tempData);
+    //setting the data to local storage now that check if one has been here.
     localStorage.setItem("allInfo", JSON.stringify(tempData));
   }, [])
 
