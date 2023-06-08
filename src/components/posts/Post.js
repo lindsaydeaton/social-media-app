@@ -1,58 +1,53 @@
 import React, { useState } from 'react';
-import { ReactionBar } from "../reactions/ReactionBar.js";
-import { CommentInput } from "../inputBars/CommentInput.js";
-import { Comments } from "../comments/Comments.js";
-import "./Post.css";
+import { ReactionBar } from '../reactions/ReactionBar.js';
+import { CommentInput } from '../inputBars/CommentInput.js';
+import { Comments } from '../comments/Comments.js';
+import './Post.css';
 
-export function Post({ data, post, setData, theDate}) {
-
+export function Post({ data, post, setData, theDate }) {
   const [viewingComments, setViewingComments] = useState(false);
-    const [isLiked, setIsLiked] = useState(false);
-    const [, setCountIsLiked] =useState('');
+  const [isLiked, setIsLiked] = useState(post.liked);
+  const [countIsLiked, setCountIsLiked] = useState(post.postLikeNo);
 
-    //if isLiked is true, set className to "liked" else nothing (to apply red color icon)
-    const likedClass = isLiked ? "liked" : "";
+  //if isLiked is true, set className to "liked" else nothing (to apply red color icon)
+  const likedClass = isLiked ? 'liked' : '';
+  const postUnliked = () => {
+    setIsLiked(false);
+    setCountIsLiked(countIsLiked - 1);
+    return {
+      ...post,
+      postLikeNo: countIsLiked - 1,
+      liked: false,
+    };
+  };
+  const postLiked = () => {
+    setIsLiked(true);
+    setCountIsLiked(countIsLiked + 1);
+    return {
+      ...post,
+      postLikeNo: countIsLiked + 1,
+      liked: true,
+    };
+  };
+  const handleLikeStored = (e) => {
+    e.preventDefault();
 
-    const onChangeLiked = (e) => {
-      // setisLiked(e.target.value);
-    }
+    //if liked is true, when clicking set it to false and decrease the count by one, else change it to true and increase the count by one
+    const formattedPost = isLiked ? postUnliked() : postLiked();
 
-    const handleLikeStored = (e) => {
-      e.preventDefault()
-      const addLike = post.postLikeNo + 1;
-      const removeLike = post.postLikeNo - 1;
-
-      //if liked is true, when clicking set it to false and decrease the count by one, else change it to true and increase the count by one
-      isLiked ? setIsLiked(false) && setCountIsLiked(removeLike) : setIsLiked(true) && setCountIsLiked(addLike)
-
-      const formattedPost = {
-        postId: post.postId,
-        post: post.post,
-        postDate: post.postDate,
-        postLikeNo: addLike,
-        postShareNo: post.postSharedNo,
-        noOfComments: post.noOfComments,
-        views: post.views,
-        liked: post.liked,
-        comments: post.comments,
-      };
-
-  console.log('formattedPost', formattedPost)
-  //if the postID being edited matches the post being updated, set the data to the updated post
-      if (data.postId == formattedPost.postId) {
-        setData({...data, posts: [
-        formattedPost, ...data.posts
-      ]})
+    //map through the posts to update the countIsLiked and liked for the one that was clicked
+    const newPosts = data.posts.map((singlePost) => {
+      if (singlePost.postId === formattedPost.postId) {
+        return formattedPost;
       }
-      console.log('data', data)
-      // localStorage.setItem(
-      //   "allInfo",
-      //   JSON.stringify({...data, posts: [
-      //     formattedPost, ...data.posts
-      //   ]})
-      // );
-    }
-
+      return singlePost;
+    });
+    setData({ ...data, posts: newPosts });
+    localStorage.setItem(
+      'allInfo',
+      JSON.stringify({ ...data, posts: newPosts })
+    );
+  };
 
   return (
     <div>
@@ -92,7 +87,6 @@ export function Post({ data, post, setData, theDate}) {
               data={data}
               likedClass={likedClass}
               handleLikeStored={handleLikeStored}
-              onChange={onChangeLiked}
               isLiked={isLiked}
             />
             <CommentInput
